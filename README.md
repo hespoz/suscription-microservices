@@ -1,6 +1,6 @@
 # Suscription web application
 
-##Build and run
+## Build and run
 
 Just execute
 
@@ -10,15 +10,15 @@ This will build and deploy all the services and also the frontend. Everything is
 
 > http://localhost:3000
 
-##Documentation
+## Documentation
 
 Each of the three services has their own swagger page.
 
-#####Open API
+##### Open API
 
 suscription-service API documentation http://localhost:8081/swagger-ui.html
 
-#####Secured API
+##### Secured API
 
 The following is the documentation of the two secured services "event-service" and "email-service". Once you open the swagger page, you will see that in order to test those services you need to provide a token. For example sake, I hardcode the token in the three services, but the idea would be to create another service where the suscription-service will login and get a token that can be shared all over the rest of services. This session could be stored in redis. The token value is "3lGknM49r2 "
 
@@ -26,9 +26,9 @@ http://localhost:8081/swagger-ui.html
 http://localhost:8082/swagger-ui.html
 
 
-##Libraries used
+## Libraries used
 
-####Backend
+#### Backend
 
 * Spring boot: Used to create a serverless web application.
 * Spring web: For create all the controllers and routers.
@@ -40,7 +40,7 @@ http://localhost:8082/swagger-ui.html
 * Eureka: Service discovery library, the three services register in Eureka and from there the communication starts.
 * Swagger: Just for create the swagger documentation page.
 
-####Frotend 
+#### Frotend 
 
 * React: web components library.
 * React-router: browser router library, used to show pages depending of the url.
