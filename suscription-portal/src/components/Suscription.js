@@ -69,6 +69,7 @@ const Suscription = (props) => {
                         <label>Birth date</label>
                         <DatePicker
                             readOnly
+                            showYearDropdown
                             selected={dateOfBirth.value !== '' ? dateOfBirth.value : moment()}
                             onChange={props.onBirthDateSelect}
                         />
