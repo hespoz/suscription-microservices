@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class EventServiceFallback implements EventService {
 
     @Override
-    public Boolean sendEventToSQS(Long suscriptionId) {
+    public Boolean sendEventToSQS(String token, Long suscriptionId) {
         return false;
     }
 

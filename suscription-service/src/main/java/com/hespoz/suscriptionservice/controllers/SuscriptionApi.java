@@ -27,6 +27,7 @@ public class SuscriptionApi {
 
     private static Logger LOGGER = LoggerFactory.getLogger(SuscriptionApi.class);
 
+    final String tokenSession = "3lGknM49r2";
     private final EventService eventService;
     private final EmailService emailService;
     private final SuscriptionService suscriptionService;
@@ -46,8 +47,8 @@ public class SuscriptionApi {
         Suscription res = suscriptionService.create(SuscriptionMapper.toSuscription(suscriptionDTO));
 
         //Report suscription event to SQS with the suscription id (Mock)
-        Boolean eventSended = eventService.sendEventToSQS(res.getId());
-        Boolean emailSended = emailService.sendEmail(res.getEmail());
+        Boolean eventSended = eventService.sendEventToSQS(tokenSession, res.getId());
+        Boolean emailSended = emailService.sendEmail(tokenSession, res.getEmail());
 
         if (!eventSended) {
             /*
@@ -65,9 +66,6 @@ public class SuscriptionApi {
             LOGGER.error("Email service is down");
             LOGGER.info("Saving email event in the table PENDING_EMAILS");
         }
-
-        //Send confirmation email to the user.
-        emailService.sendEmail(res.getEmail());
 
         return res.getId();
     }

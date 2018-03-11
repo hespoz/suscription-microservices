@@ -1,8 +1,7 @@
 package com.hespoz.suscriptionservice.services;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by hespoz on 3/9/18.
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @FeignClient(name="email-service", fallback = com.hespoz.suscriptionservice.fallbacks.EmailServiceFallback.class)
 public interface EmailService {
 
-    @PostMapping("/email")
-    Boolean sendEmail(String email);
+    @RequestMapping(method = RequestMethod.POST, value = "/email")
+    Boolean sendEmail(@RequestHeader("token") String token, @RequestBody String email);
 
 }

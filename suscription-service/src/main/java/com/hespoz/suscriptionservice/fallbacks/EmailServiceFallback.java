@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class EmailServiceFallback implements EmailService {
 
     @Override
-    public Boolean sendEmail(String email) {
+    public Boolean sendEmail(String token, String email) {
         return false;
     }
 
