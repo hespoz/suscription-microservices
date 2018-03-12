@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Suscription from '../components/Suscription.js'
 
-import { suscribe } from "../actions/suscribeAction";
+import { suscribe, goBack } from "../actions/suscribeAction";
 
 import { form } from 'react-inform'
 import {connect} from "react-redux"
@@ -32,7 +32,8 @@ const validate = values => {
 @connect((store) => {
     return {
         message:store.suscribe.message,
-        error_message:store.suscribe.error_message
+        error_message:store.suscribe.error_message,
+        showForm:store.suscribe.showForm
     }
 })
 class SuscriptionContainer extends Component {
@@ -75,9 +76,14 @@ class SuscriptionContainer extends Component {
        this.updateFormValues({dateOfBirth: date})
     }
 
+    goBack = () => {
+        this.props.dispatch(goBack())
+    }
+
     render () {
         return (
             <Suscription 
+                showForm={this.props.showForm}
                 message={this.props.message}
                 error_message={this.props.error_message}
                 fields={this.props.fields}
@@ -85,6 +91,7 @@ class SuscriptionContainer extends Component {
                 onGenderSelect={this.onGenderSelect}
                 onBirthDateSelect={this.onBirthDateSelect}
                 onSubmit={this.onSubmit}
+                goBack={this.goBack}
             />
         )
     }
