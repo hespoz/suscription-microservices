@@ -2,6 +2,8 @@
 
 ## Build and run
 
+### Quick
+
 Just execute
 
 `$ ./runMe.sh`
@@ -9,6 +11,13 @@ Just execute
 This will build and deploy all the services and also the frontend. Everything is ready when in your default browser the main page of the application is open.
 
 > http://localhost:3000
+
+### Manually
+
+Go to each of of the following folders `discovery-service`,`email-service`,`event-service`,`suscription-service` and inside of each folder execute the command `mvn spring-boot:run` this will start the service in the default ports.
+
+Then go to `suscription-portal` and execute `npm install` and then `npm start`, this will open in the browser the http://localhost:3000 url.
+
 
 ## Documentation
 
@@ -33,7 +42,7 @@ http://localhost:8082/swagger-ui.html
 * Spring boot: Used to create a serverless web application.
 * Spring web: For create all the controllers and routers.
 * Hystrix: For implement the faultback strategy.
-* Zuul: Proxy load balancer.
+* Zuul: Proxy load balancer, we are using eureka for service discovery, so Zuul is not relevant for this test. Anyway I keep it because the service could be extend to support the consume of multiple api using only one entry point.
 * Feign: Declarative HTTP client for consume event-service and email-service.
 * Hibernate: I used the Hibernate JPA implementation for data access.
 * H2 database: In memory embedded database
@@ -52,4 +61,6 @@ http://localhost:8082/swagger-ui.html
 * React datepicker: Used for set the date into the react-datepicker
 * SASS: CSS preprocessor.
 
+#### Pipeline proposal
+I would create pipelines in each project, so when somebody commit into master, the pipeline will call a CI that will build run maven tests, build the docker image and deploy to ECS. 
 
