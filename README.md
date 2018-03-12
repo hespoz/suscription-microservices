@@ -31,7 +31,10 @@ suscription-service API documentation http://localhost:8081/swagger-ui.html
 
 The following is the documentation of the two secured services "event-service" and "email-service". Once you open the swagger page, you will see that in order to test those services you need to provide a token. For example sake, I hardcode the token in the three services, but the idea would be to create another service where the suscription-service will login and get a token that can be shared all over the rest of services. This session could be stored in redis. The token value is "3lGknM49r2 "
 
-http://localhost:8081/swagger-ui.html
+http://localhost:8081/swagger-ui.html 
+
+and
+
 http://localhost:8082/swagger-ui.html
 
 
