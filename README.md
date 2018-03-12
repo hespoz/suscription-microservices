@@ -1,5 +1,15 @@
 # Suscription web application
 
+## Clone project
+
+Just execute
+
+`$ git clone https://github.com/hespoz/suscription-microservices.git`
+
+Then
+
+`$ cd suscription-microservices`
+
 ## Build and run
 
 ### Quick
