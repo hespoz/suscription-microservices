@@ -61,7 +61,7 @@ and
 * Spring boot: Used to create a serverless web application.
 * Spring web: For create all the controllers and routers.
 * Hystrix: For implement the faultback strategy.
-* Zuul: Proxy load balancer, we are using eureka for service discovery, so Zuul is not relevant for this test. Anyway I keep it because the service could be extend to support the consume of multiple api using only one entry point.
+* Zuul: Proxy load balancer, we are using eureka for service discovery, so Zuul is not relevant for this test. Anyway I keep it because the service could be extend to support the consume of multiple api using only one entry point. Also is used with eureka and feign to know to where redirect the calls from suscription-service.
 * Feign: Declarative HTTP client for consume event-service and email-service.
 * Hibernate: I used the Hibernate JPA implementation for data access.
 * H2 database: In memory embedded database
