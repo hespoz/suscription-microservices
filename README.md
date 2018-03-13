@@ -22,6 +22,8 @@ This will build and deploy all the services and also the frontend. Everything is
 
 > http://localhost:3000
 
+If for some reason this does not work please run it manually. Remember that the ports 8761, 8080, 8081 and 8082 should be free.
+
 ### Manually
 
 Go to each of of the following folders `discovery-service`,`email-service`,`event-service`,`suscription-service` and inside of each folder execute the command `mvn spring-boot:run` this will start the service in the default ports.
@@ -35,7 +37,7 @@ Each of the three services has their own swagger page.
 
 ##### Open API
 
-suscription-service API documentation http://localhost:8081/swagger-ui.html
+suscription-service API documentation http://localhost:8080/swagger-ui.html
 
 ##### Secured API
 
